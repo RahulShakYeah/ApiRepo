@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TodoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,5 +55,12 @@ Route::delete('/delete/task/{taskId}',[TaskController::class,'deleteTask']);
 Route::get('/getAll/task',[TaskController::class,'getAllTask']);
 Route::patch('/update/task/{taskId}',[TaskController::class,'updateTask']);
 Route::get('/filter/task',[TaskController::class,'filterTask']);
+
+//Todo Routes
+Route::post('/add/todo',[TodoController::class,'store']);
+Route::get('/getAll/todo',[TodoController::class,'getAllTodo']);
+Route::get('/get/todo/todo',[TodoController::class,'getTodoAccordingTask']);
+Route::post('/toggle/todo/{todoId}',[TodoController::class,'toggleTodo']);
+Route::post('/uploadImage/{todoId}',[TodoController::class,'uploadImage']);
 
 

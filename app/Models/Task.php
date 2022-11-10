@@ -11,4 +11,8 @@ class Task extends Model
 
     protected $table = 'tasks';
     protected $fillable = ['task_name','status'];
+
+//    public function todo(){
+//        return $this->hasMany(Todo::class,'id','task_id');
+//    }
 }
