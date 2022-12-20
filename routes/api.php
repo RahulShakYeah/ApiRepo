@@ -7,6 +7,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,5 +64,17 @@ Route::get('/getAll/todo',[TodoController::class,'getAllTodo']);
 Route::get('/get/todo/todo',[TodoController::class,'getTodoAccordingTask']);
 Route::post('/toggle/todo/{todoId}',[TodoController::class,'toggleTodo']);
 Route::post('/uploadImage/{todoId}',[TodoController::class,'uploadImage']);
+
+
+/****************************************User registration using passport****************************************************************/
+//User registrations routes
+Route::post('/register/user',[RegistrationController::class,'registerUser']);
+Route::post('/login',[UserController::class,'login']);
+
+Route::group(['middleware' => 'auth:api'],function (){
+    Route::get('/users/list',[UserController::class,'getUserDetails']);
+
+});
+
 
 
